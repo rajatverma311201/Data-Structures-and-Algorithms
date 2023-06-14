@@ -15,11 +15,10 @@ public class TopologicalSortBFS {
 
     public void bfs(int ind, List<Integer>[] adj, boolean vis[], int[] indegree, List<Integer> li) {
         Queue<Integer> q = new LinkedList<>();
-        // q.offer(ind);
 
         for (int i = 0; i < indegree.length; i++) {
             if (indegree[i] == 0) {
-                q.add(i);
+                q.offer(i);
             }
         }
 
