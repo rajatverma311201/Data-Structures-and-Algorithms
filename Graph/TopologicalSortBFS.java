@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -15,10 +16,11 @@ public class TopologicalSortBFS {
 
     public void bfs(int ind, List<Integer>[] adj, boolean vis[], int[] indegree, List<Integer> li) {
         Queue<Integer> q = new LinkedList<>();
+        // q.offer(ind);
 
         for (int i = 0; i < indegree.length; i++) {
             if (indegree[i] == 0) {
-                q.offer(i);
+                q.add(i);
             }
         }
 
@@ -46,25 +48,21 @@ public class TopologicalSortBFS {
      * @param vertices number of vertices for 0 based graph
      * @return array containing topological sort of the Directed Acyclic Graph
      */
-    @SuppressWarnings("unchecked")
     public int[] topoSort(int[][] edges, int vertices) {
 
         int[] indegree = new int[vertices];
 
         // ADJACENCY LIST
-        List<Integer>[] adj = new ArrayList[vertices];
+        // ArrayList<Integer>[] adj = new ArrayList<Integer>[vertices];
+        List<Integer>[] adj = GraphUtils.createAdjacencyList(edges, vertices, true);
+
         List<Integer> li = new ArrayList<>();
 
         boolean vis[] = new boolean[vertices];
-
-        for (int i = 0; i < vertices; i++) {
-            adj[i] = new ArrayList<Integer>();
-            vis[i] = false;
-            indegree[i] = 0;
-        }
+        Arrays.fill(vis, false);
+        Arrays.fill(indegree, 0);
 
         for (int[] edge : edges) {
-            adj[edge[0]].add(edge[1]);
             indegree[edge[1]]++;
         }
 
@@ -72,12 +70,8 @@ public class TopologicalSortBFS {
             if (!vis[i])
                 bfs(i, adj, vis, indegree, li);
         }
-        int[] ans = new int[vertices];
-        for (int i = 0; i < li.size(); i++) {
-            ans[i] = li.get(i);
-        }
 
-        return ans;
+        return GraphUtils.convertListToArray(li);
     }
 
 }
