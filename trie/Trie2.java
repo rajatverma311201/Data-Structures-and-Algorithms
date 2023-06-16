@@ -82,6 +82,8 @@ public class Trie2 {
      * 
      * @param word
      * @return int count
+     * 
+     *         Time Complexity: O(n), where n is the word length.
      */
     int countWordsEqualTo(String word) {
         TrieNode2 node = root;
@@ -95,6 +97,15 @@ public class Trie2 {
         return node.countEndsWith;
     }
 
+    /**
+     * Counts the number of words that have the given prefix.
+     * 
+     * @param prefix
+     * @return int count
+     * 
+     *         Time Complexity: O(n), where n is the prefix length.
+     */
+
     int countWordsStartingWith(String prefix) {
         TrieNode2 node = root;
         for (int i = 0; i < prefix.length(); i++) {
@@ -106,6 +117,15 @@ public class Trie2 {
         }
         return node.countPrefix;
     }
+
+    /**
+     * Erases a word from the trie.
+     * 
+     * @param word
+     * @return void
+     * 
+     *         Time Complexity: O(n), where n is the word length.
+     */
 
     void erase(String word) {
         if (countWordsEqualTo(word) == 0)
