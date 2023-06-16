@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -30,7 +31,6 @@ public class TopologicalSortDFS {
      * @param vertices number of vertices for 0 based graph
      * @return array containing topological sort of the Directed Acyclic Graph
      */
-    @SuppressWarnings("unchecked")
     public int[] topoSort(int[][] edges, int vertices) {
 
         int[] ans = new int[vertices];
@@ -38,18 +38,10 @@ public class TopologicalSortDFS {
         Stack<Integer> st = new Stack<>();
 
         // ADJACENCY LIST
-        List<Integer>[] adj = new ArrayList[vertices];
+        List<Integer>[] adj = GraphUtils.createAdjacencyList(edges, vertices, true);
 
         boolean vis[] = new boolean[vertices];
-
-        for (int i = 0; i < vertices; i++) {
-            adj[i] = new ArrayList<Integer>();
-            vis[i] = false;
-        }
-
-        for (int[] edge : edges) {
-            adj[edge[0]].add(edge[1]);
-        }
+        Arrays.fill(vis, false);
 
         for (int i = 0; i < vertices; i++) {
             if (!vis[i])
@@ -58,7 +50,6 @@ public class TopologicalSortDFS {
 
         for (int i = 0; i < vertices; i++) {
             ans[i] = st.pop();
-
         }
 
         return ans;
