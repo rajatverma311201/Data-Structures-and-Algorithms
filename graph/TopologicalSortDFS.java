@@ -14,11 +14,11 @@ public class TopologicalSortDFS {
      * @param vis visited array for graph
      * @param st  stack to store the topo sort
      */
-    public void dfs(int ind, List<Integer>[] adj, boolean[] vis, Stack<Integer> st) {
+    public void dfsTopo(int ind, List<Integer>[] adj, boolean[] vis, Stack<Integer> st) {
         vis[ind] = true;
         for (int node : adj[ind]) {
             if (!vis[node]) {
-                dfs(node, adj, vis, st);
+                dfsTopo(node, adj, vis, st);
             }
         }
         st.push(ind);
@@ -46,7 +46,7 @@ public class TopologicalSortDFS {
 
         for (int i = 0; i < vertices; i++) {
             if (!vis[i])
-                dfs(i, adj, vis, st);
+                dfsTopo(i, adj, vis, st);
         }
 
         for (int i = 0; i < vertices; i++) {
