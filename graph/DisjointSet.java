@@ -6,7 +6,7 @@ public class DisjointSet {
     private int[] parent;
     private int vertices;
 
-    DisjointSet(int vertices) {
+    public DisjointSet(int vertices) {
         this.vertices = vertices;
         rank = new int[this.vertices + 1];
         parent = new int[this.vertices + 1];

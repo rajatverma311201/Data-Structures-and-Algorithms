@@ -75,9 +75,9 @@ public class PrimsAlgorithm {
                 continue;
 
             visited[node] = true;
+            totalWeight += weight;
             if (parent != -1) {
                 mst.add(new Pair<>(parent, node));
-                totalWeight += weight;
             }
 
             for (Pair<Integer, Integer> p : adj[node]) {
