@@ -29,6 +29,7 @@ public class PrimsAlgorithm {
      * @return List of edges in the minimum spanning tree
      */
 
+    // for storing in the priority queue.
     static class Edge {
         int node;
         int weight;
