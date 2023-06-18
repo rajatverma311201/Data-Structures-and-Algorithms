@@ -2,7 +2,12 @@ package graph.shortest_path;
 
 import java.util.Arrays;
 
+import graph.GraphUtils;
+
 /**
+ * 
+ * SINGLE SOURCE SHORTEST PATH ALGORITHM
+ * 
  * BELLMAN FORD ALGO helps in detecting negative cycles and Shortest path
  * calculation
  * 
@@ -17,10 +22,22 @@ import java.util.Arrays;
 
 public class BellmanFordAlgorithm {
 
+    int INF = GraphUtils.INFINITY;
+
+    /**
+     * 
+     * @param edges    edges array
+     * @param vertices number of vertices
+     * @param source   source node
+     * @return int[] distance array, and an empty array if negative cycle is
+     *         detected
+     * 
+     */
+
     public int[] bellmanFord(int[][] edges, int vertices, int source) {
 
         int[] dist = new int[vertices];
-        Arrays.fill(dist, (int) (1e9 + 7));
+        Arrays.fill(dist, INF);
 
         dist[source] = 0;
 
@@ -30,7 +47,7 @@ public class BellmanFordAlgorithm {
                 int u = edge[0];
                 int v = edge[1];
                 int wt = edge[2];
-                if (dist[u] == (int) (1e9 + 7))
+                if (dist[u] == INF)
                     continue;
 
                 // RELAXING EDGES
@@ -42,11 +59,12 @@ public class BellmanFordAlgorithm {
         }
 
         // CHECKING FOR NEGATIVE CYCLE
+        // BY RELAXING EDGES ONE MORE TIME(Nth TIME)
         for (int[] edge : edges) {
             int u = edge[0];
             int v = edge[1];
             int wt = edge[2];
-            if (dist[u] == (int) (1e9 + 7))
+            if (dist[u] == INF)
                 continue;
             // RELAXING EDGES
             if (dist[u] + wt < dist[v]) {

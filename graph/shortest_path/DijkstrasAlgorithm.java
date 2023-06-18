@@ -9,6 +9,7 @@ import utils.Pair;
 
 /**
  * 
+ * SINGLE SOURCE SHORTEST PATH ALGORITHM
  * 
  * Dijkstra's Algorithm
  * 
@@ -19,6 +20,8 @@ import utils.Pair;
  */
 
 public class DijkstrasAlgorithm {
+
+    int INF = GraphUtils.INFINITY;
 
     /**
      * Checks for the order of the pair in the priority queue.
@@ -75,7 +78,7 @@ public class DijkstrasAlgorithm {
     public int[] dijkstra(int[][] edges, int vertices, int source) {
         List<Pair<Integer, Integer>>[] adj = GraphUtils.createAdjacencyListWithEdgeWeights(edges, vertices, false);
         int[] dist = new int[vertices];
-        Arrays.fill(dist, (int) 1e9 + 7);
+        Arrays.fill(dist, INF);
 
         dist[source] = 0;
 
