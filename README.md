@@ -12,6 +12,8 @@
     -   [Topological Sort DFS](/graph/TopologicalSortDFS.java)
     -   [Disjoint Set](/graph/DisjointSet.java)
 
+    ***
+
 -   ### Shortest Path
 
     -   [Dijkstra's Algorithm](/graph/shortest_path/DijkstrasAlgorithm.java)
