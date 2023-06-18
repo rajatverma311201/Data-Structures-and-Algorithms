@@ -7,6 +7,20 @@ import java.util.PriorityQueue;
 import graph.DisjointSet;
 import utils.Pair;
 
+/**
+ * 
+ * MINIMUM SPANNING TREE
+ * 
+ * Kruskal's Algorithm
+ * 
+ * Weighted Undirected Graph
+ * 
+ * Time Complexity : O(ElogV)
+ * 
+ * Uses DisjointSet Data Structure
+ * 
+ */
+
 public class KruskalsAlgorithm {
 
     // for storing in the priority queue.
@@ -21,6 +35,17 @@ public class KruskalsAlgorithm {
             this.parent = parent;
         }
     }
+
+    /**
+     * 
+     * 
+     * 
+     * @param edges    edges array (u, v, wt)
+     * @param vertices number of vertices
+     * @return Pair
+     *         first element is the list of edges in the minimum spanning tree
+     *         second element is the total weight of the minimum spanning tree
+     */
 
     public Pair<List<Pair<Integer, Integer>>, Integer> kruskals(int[][] adj, int vertices) {
 
