@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Map;
 import java.util.TreeMap;
-import utils.Pair;
 
 import tree.TreeNode;
+import utils.Pair;
 
 public class TopView {
 
