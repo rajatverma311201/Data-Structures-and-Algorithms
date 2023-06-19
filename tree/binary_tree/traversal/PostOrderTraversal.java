@@ -1,6 +1,6 @@
 package tree.binary_tree.traversal;
 
-import tree.binary_tree.TreeNode;
+import tree.TreeNode;
 
 public class PostOrderTraversal {
 

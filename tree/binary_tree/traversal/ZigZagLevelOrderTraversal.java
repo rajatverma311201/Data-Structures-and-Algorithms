@@ -1,5 +1,7 @@
 package tree.binary_tree.traversal;
 
+import tree.TreeNode;
+
 public class ZigZagLevelOrderTraversal {
 
     public List<List<Integer>> traverse(TreeNode root) {
