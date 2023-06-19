@@ -15,12 +15,10 @@ public class TopView {
     public List<Integer> getView(TreeNode root) {
 
         List<Integer> ans = new ArrayList<>();
-
         Queue<Pair<TreeNode, Integer>> q = new LinkedList<>();
+        Map<Integer, Integer> mp = new TreeMap<>();
 
         q.offer(new Pair<TreeNode, Integer>(root, 0));
-
-        Map<Integer, Integer> mp = new TreeMap<>();
 
         while (!q.isEmpty()) {
             Pair<TreeNode, Integer> pair = q.poll();
@@ -38,14 +36,10 @@ public class TopView {
                 q.offer(new Pair<TreeNode, Integer>(node.left, level - 1));
             }
         }
-
         for (int key : mp.keySet()) {
             ans.add(mp.get(key));
-
         }
-
         return ans;
-
     }
 
 }
