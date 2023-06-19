@@ -10,7 +10,7 @@ import java.util.TreeMap;
 import tree.TreeNode;
 import utils.Pair;
 
-public class TopView {
+public class BottomView {
 
     public List<Integer> getView(TreeNode root) {
 
@@ -25,9 +25,7 @@ public class TopView {
             TreeNode node = pair.first;
             int level = pair.second;
 
-            if (!mp.containsKey(level)) {
-                mp.put(level, node.data);
-            }
+            mp.put(level, node.data);
 
             if (node.left != null) {
                 q.offer(new Pair<TreeNode, Integer>(node.left, level - 1));
