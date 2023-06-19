@@ -1,14 +1,12 @@
 package tree.binary_tree.traversal;
 
+public class ZigZagLevelOrderTraversal {
 
-public class LevelOrderTraversal
-{
-
-    public List<List<Integer>> levelorder(TreeNode root) {
+    public List<List<Integer>> traverse(TreeNode root) {
 
         List<List<Integer>> ans = new ArrayList<>();
         Queue<TreeNode> q = new LinkedList<>();
-
+        boolean flag = false;
         if (root == null) {
             return ans;
         }
@@ -30,8 +28,14 @@ public class LevelOrderTraversal
                     q.offer(node.right);
                 }
             }
+
+            if (flag) {
+                Collections.reverse(li);
+            }
             ans.add(new ArrayList<>(li));
+            flag = !flag;
         }
         return ans;
     }
+
 }
