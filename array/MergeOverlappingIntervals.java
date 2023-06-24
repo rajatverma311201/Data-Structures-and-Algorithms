@@ -7,7 +7,7 @@ import utils.Pair;
 public class MergeOverlappingIntervals {
 
     private static int minHeapComparator(Pair<Integer, Integer> a, Pair<Integer, Integer> b) {
-        if (a.first != b.first)
+        if (!Objects.equals(a.first, b.first))
             return a.first - b.first;
         return a.second - b.second;
     }
@@ -16,12 +16,10 @@ public class MergeOverlappingIntervals {
 
         // PriorityQueue<Pair<Integer, Integer>> pq = new PriorityQueue<>(new
         // PairComparator<Integer, Integer>());
-        PriorityQueue<Pair<Integer, Integer>> pq = new PriorityQueue<>((a, b) -> minHeapComparator(a, b));
+        PriorityQueue<Pair<Integer, Integer>> pq = new PriorityQueue<>(MergeOverlappingIntervals::minHeapComparator);
 
-        for (int i = 0; i < intervals.length; i++) {
-
-            pq.add(new Pair<>(intervals[i][0], intervals[i][1]));
-
+        for (int[] interval : intervals) {
+            pq.add(new Pair<>(interval[0], interval[1]));
         }
         List<Pair<Integer, Integer>> li = new ArrayList<>();
 
