@@ -1,4 +1,4 @@
-package searching;
+package searching.binary_search;
 
 /**
  * 
