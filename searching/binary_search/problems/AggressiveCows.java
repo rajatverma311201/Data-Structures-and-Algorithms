@@ -7,6 +7,10 @@ import java.util.Arrays;
  *
  * AGGRESSIVE  COWS
  *
+ * find the maximum of the minimum distances between two cows
+ *
+ * maximum of minimums
+ *
  *
  * https://takeuforward.org/data-structure/aggressive-cows-detailed-solution/
  *
