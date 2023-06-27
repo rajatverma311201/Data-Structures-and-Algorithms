@@ -9,6 +9,17 @@ public class MinimumInRotatedSortedArray {
         int ans = Integer.MAX_VALUE;
 
         while (low <= high) {
+
+            // if array is sorted already
+            // then answer will be the min of ans and low
+
+            if (nums[low] <= nums[high])
+
+            {
+                ans = Math.min(ans, nums[low]);
+                break;
+            }
+
             int mid = low + (high - low) / 2;
 
             if (nums[low] <= nums[mid]) {
