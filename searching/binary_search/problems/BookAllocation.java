@@ -1,9 +1,21 @@
 package searching.binary_search.problems;
 
+
+/**
+ *
+ * BOOK ALLOCATION PROBLEM
+ *
+ * allocate books to students such that the
+ * max pages allocated to each one is minimum
+ *
+ * https://takeuforward.org/data-structure/allocate-minimum-number-of-pages/
+ * https://www.geeksforgeeks.org/allocate-minimum-number-pages/
+ *
+ *
+ */
+
+
 public class BookAllocation {
-
-
-
     public int bookAllocation(int[] bookPages, int students)
     {
         if(students>bookPages.length)
