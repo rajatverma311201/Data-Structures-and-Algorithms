@@ -2,7 +2,25 @@ package dynamic_programming;
 
 import java.util.Arrays;
 
-public class Q1_FibonacciNumber {
+/**
+ * 
+ * 
+ * You have been given a number of stairs. Initially, you are at the 0th stair,
+ * and you need to reach the Nth stair. Each time you can either climb one step
+ * or two steps. You are supposed to return the number of distinct ways in which
+ * you can climb from the 0th step to Nth step.
+ * 
+ * 
+ * 
+ * 1D dp
+ * 
+ * https://www.codingninjas.com/studio/problems/count-ways-to-reach-nth-stairs_798650?source=youtube&campaign=striver_dp_videos&utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_dp_videos
+ * 
+ * 
+ * SIMILAR AS A FIBONACCI NUMBER
+ * 
+ */
+public class Q2_ClimbingStairs {
 
     // Best Soln Iterative
     // O(n)
@@ -45,16 +63,6 @@ public class Q1_FibonacciNumber {
 
         return fibMemoCall(n, dp);
 
-    }
-
-    // Worst Soln
-    // O(2^n)
-    public int fibonacciRecursive(int n) {
-        if (n == 0 || n == 1) {
-            return n;
-        }
-
-        return fibonacciIterative(n - 1) + fibonacciIterative(n - 2);
     }
 
 }
