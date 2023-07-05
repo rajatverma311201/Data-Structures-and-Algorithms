@@ -89,11 +89,11 @@ public class Q3_FrogJump {
             return dp[ind];
         }
 
-        int oneJump = findMinEnergyRecur(heights, ind - 1) + Math.abs(heights[ind] - heights[ind - 1]);
+        int oneJump = findMinEnergyMemoCall(heights, ind - 1, dp) + Math.abs(heights[ind] - heights[ind - 1]);
 
         int twoJump = Integer.MAX_VALUE;
         if (ind >= 2) {
-            twoJump = findMinEnergyRecur(heights, ind - 2) + Math.abs(heights[ind] - heights[ind - 2]);
+            twoJump = findMinEnergyMemoCall(heights, ind - 2, dp) + Math.abs(heights[ind] - heights[ind - 2]);
         }
 
         return dp[ind] = Math.min(oneJump, twoJump);
