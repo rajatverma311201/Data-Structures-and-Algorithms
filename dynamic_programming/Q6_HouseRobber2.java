@@ -4,17 +4,20 @@ import java.util.Arrays;
 
 /**
  * 
+ * 
  * MAXIMUM SUM OF NON ADJACENT ELEMENTS
+ * first and last elements are also adjacent
  * 
  * 
- * HOUSE ROBBER 1
+ * HOUSE ROBBER 2
  * 
  * 
  * You are a professional robber planning to rob houses along a street. Each
- * house has a certain amount of money stashed, the only constraint stopping you
- * from robbing each of them is that adjacent houses have security systems
- * connected and it will automatically contact the police if two adjacent houses
- * were broken into on the same night.
+ * house has a certain amount of money stashed. All houses at this place are
+ * arranged in a circle. That means the first house is the neighbor of the last
+ * one. Meanwhile, adjacent houses have a security system connected, and it will
+ * automatically contact the police if two adjacent houses were broken into on
+ * the same night.
  * 
  * Given an integer array nums representing the amount of money of each house,
  * return the maximum amount of money you can rob tonight without alerting the
@@ -22,15 +25,34 @@ import java.util.Arrays;
  * 
  * 
  * 
- * https://leetcode.com/problems/house-robber/description/
+ * https://leetcode.com/problems/house-robber-ii/description/
  * 
- * https://takeuforward.org/data-structure/maximum-sum-of-non-adjacent-elements-dp-5/
- * 
- * 
+ * https://takeuforward.org/data-structure/dynamic-programming-house-robber-dp-6/
  * 
  */
+public class Q6_HouseRobber2 {
 
-public class Q5_MaxSumOfNonAdjacentElements {
+    public int giveMaxMoney(int[] nums) {
+        int[] arrF = new int[nums.length - 1];
+        int[] arrL = new int[nums.length - 1];
+
+        for (int i = 0; i < nums.length; i++) {
+
+            if (i != 0) {
+                arrL[i - 1] = nums[i];
+            }
+
+            if (i != nums.length - 1) {
+                arrF[i] = nums[i];
+            }
+
+        }
+
+        int takeFirst = giveMaxSumTabSpace(arrF);
+        int takeLast = giveMaxSumTabSpace(arrL);
+        return Math.max(takeFirst, takeLast);
+
+    }
 
     // BEST SOLN
     // Time - O(n)
@@ -85,24 +107,6 @@ public class Q5_MaxSumOfNonAdjacentElements {
         int notPick = 0 + giveMaxSumMemoCall(arr, idx - 1, dp);
 
         return dp[idx] = Math.max(pick, notPick);
-
-    }
-
-    // WORST SOLN
-    public int giveMaxSumRecur(int[] arr) {
-        return giveMaxSumRecurCall(arr, arr.length - 1);
-    }
-
-    public int giveMaxSumRecurCall(int[] arr, int idx) {
-
-        if (idx < 0) {
-            return 0;
-        }
-
-        int pick = arr[idx] + giveMaxSumRecurCall(arr, idx - 2);
-        int notPick = 0 + giveMaxSumRecurCall(arr, idx - 1);
-
-        return Math.max(pick, notPick);
 
     }
 
