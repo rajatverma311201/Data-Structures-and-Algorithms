@@ -38,7 +38,7 @@ public class Q7_NinjaTraining {
                 continue;
             }
 
-            int currDayPoint = trainMaxMemoCall(points, day - 1, i, dp);
+            int currDayPoint = points[day][i] + trainMaxMemoCall(points, day - 1, i, dp);
             ans = Math.max(ans, currDayPoint);
         }
 
@@ -64,7 +64,7 @@ public class Q7_NinjaTraining {
                 continue;
             }
 
-            int currDayPoint = trainMaxRecurCall(points, day - 1, i);
+            int currDayPoint = points[day][i] + trainMaxRecurCall(points, day - 1, i);
             ans = Math.max(ans, currDayPoint);
         }
 
