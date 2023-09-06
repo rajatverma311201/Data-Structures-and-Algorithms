@@ -30,7 +30,6 @@ public class MergeOverlappingIntervals {
             Pair<Integer, Integer> oldPair = li.get(li.size() - 1);
 
             if (oldPair.second >= currPair.first) {
-
                 if (!(oldPair.second >= currPair.second))
                     oldPair.second = currPair.second;
                 continue;
