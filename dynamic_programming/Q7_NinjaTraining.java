@@ -22,7 +22,7 @@ public class Q7_NinjaTraining {
 
     // N*3 points matrix
     // (i, j) i denotes day and j denotes activity
-    public int trainMaxMemo(int[][] points) {
+    public int trainMaxMemo( int[][] points) {
         int[][] dp = new int[points.length][3 + 1];
 
         for (int[] row : dp) {

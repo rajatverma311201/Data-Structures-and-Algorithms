@@ -20,7 +20,7 @@ public class Pair<T, U> {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof Pair)) {
+        if (!(obj.getClass() == this.getClass())) {
             return false;
         }
         Pair<T, U> p = (Pair<T, U>) obj;

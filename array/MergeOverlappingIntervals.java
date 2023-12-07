@@ -25,7 +25,7 @@ public class MergeOverlappingIntervals {
 
         li.add(pq.poll());
 
-        while (pq.size() > 0) {
+        while (!pq.isEmpty()) {
             Pair<Integer, Integer> currPair = pq.poll();
             Pair<Integer, Integer> oldPair = li.get(li.size() - 1);
 
